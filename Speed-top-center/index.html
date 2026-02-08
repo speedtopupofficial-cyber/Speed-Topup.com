@@ -1,0 +1,132 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPEED Top Up Center - Login</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial;
+            height: 100%;
+            color: white;
+            text-align: center;
+            background: url('Screenshot (47).jpeg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        #loginForm {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgba(23, 23, 23, 0.6);
+            padding: 40px;
+            border-radius: 15px;
+            width: 320px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: none;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            background: #22c55e;
+            color: rgb(20, 19, 19);
+            cursor: pointer;
+        }
+
+            .btn:hover {
+                background: #16a34a;
+                color: white;
+            }
+
+        header {
+            font-size: 50px;
+            font-weight: bold;
+            color: rgb(228, 222, 222);
+            margin-bottom: 20px;
+            background: #f0f3f1;
+            background: rgba(23, 23, 23, 0.6);
+        }
+
+        /* Mobile-Friendly Media Query */
+        @media screen and (max-width: 600px) {
+            #loginForm {
+                width: 90%;
+                padding: 20px;
+            }
+
+            header {
+                font-size: 30px;
+            }
+
+            .btn {
+                padding: 15px;
+                font-size: 18px;
+            }
+            @media (max-width: 768px) {
+                header {
+                    font-size: 28px;
+                    padding: 12px;
+                }
+
+                #loginForm {
+                    width: 90%;
+                    padding: 25px;
+                }
+
+                p {
+                    font-size: 16px;
+                }
+
+                .btn {
+                    font-size: 16px;
+                }
+            }
+
+            @media (max-width: 400px) {
+                header {
+                    font-size: 22px;
+                }
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <header>SPEED TopUp Center</header>
+
+    <section id="loginForm">
+        <p>WELCOME TO SPEED</p>
+
+        <!-- Username & Password REMOVED -->
+
+        <button class="btn" onclick="goNext()">LET'S GO</button>
+    </section>
+
+    <script>
+        function goNext() {
+            location.href = "services.html";
+        }
+    </script>
+</body>
+</html>

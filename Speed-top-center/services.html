@@ -1,0 +1,518 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Top Up Center - Services</title>
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            background: url('Screenshot (48).jpeg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        header {
+            padding: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            background: rgba(0,0,0,0.7);
+        }
+
+        /* MAIN 5 CARDS */
+        .card {
+            background: rgba(19, 11, 58, 0.7);
+            border-radius: 12px;
+            width: 220px;
+            padding: 20px;
+            margin: 15px;
+            display: inline-block;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+            .card:hover {
+                background: #38bdf8;
+                color: black;
+                transform: translateY(-5px);
+            }
+
+        /* DETAILS SECTION */
+        .details {
+            display: none;
+            margin: 30px auto;
+            padding: 25px;
+            width: 90%;
+            max-width: 1100px;
+            /* WHITE TRANSPARENT */
+            background: rgba(14, 8, 50, 0.18);
+            backdrop-filter: blur(8px);
+            border-radius: 16px;
+        }
+
+        /* HORIZONTAL LAYOUT */
+        .details-content {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 10px;
+        }
+
+        /* EACH ITEM CARD */
+        .item {
+            min-width: 260px;
+            background: rgba(0,0,0,0.65);
+            border-radius: 12px;
+            padding: 15px;
+        }
+
+            .item img {
+                width: 100%;
+                border-radius: 8px;
+            }
+
+        .btn {
+            padding: 10px 15px;
+            background: #22c55e;
+            color: black;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            border-radius: 6px;
+        }
+
+            .btn:hover {
+                background: #16a34a;
+                color: rgb(15, 6, 37);
+            }
+
+        .nav-btns {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* MOBILE */
+        @media(max-width:600px) {
+            .details-content {
+                flex-direction: row;
+            }
+        }
+
+        /* SCROLL TOP */
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 50%;
+            background: #38bdf8;
+            display: none;
+            cursor: pointer;
+        }
+
+        /* EACH ITEM CARD */
+        .item {
+            min-width: 260px;
+            background: rgba(0,0,0,0.65);
+            border-radius: 12px;
+            padding: 15px;
+        }
+        /* ---------- MOBILE RESPONSIVE ---------- */
+
+        @media (max-width: 768px) {
+
+            #mainCards {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 90%;
+                font-size: 18px;
+            }
+        }
+
+        /* FIX TOP BUTTONS OVERLAP */
+        @media (max-width: 600px) {
+            button[style*="position:fixed"] {
+                position: static !important;
+                width: 90%;
+                margin: 10px auto;
+                display: block;
+            }
+
+            .details-content {
+                gap: 12px;
+            }
+
+            .item {
+                min-width: 220px;
+            }
+
+            .nav-btns {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+                .nav-btns button {
+                    width: 100%;
+                    padding: 12px;
+                }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>SPEED Top Up Center</header>
+
+    <button onclick="window.location.href='peyment.html'"
+            style="
+    position:fixed;
+    top:20px;
+    right:20px;
+    padding:8px 16px;
+    border:none;
+    border-radius:8px;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+    font-size:14px;
+    z-index:9999;
+  ">
+        Payment Details
+    </button>
+
+    
+    
+
+
+    <button onclick="window.open('https://wa.me/p/23904386635915267/94789418853','_blank')"
+            style="position:fixed;top:20px;color:white;left:20px;padding:10px 20px;border:none;border-radius:8px;background:#6c0202;cursor:pointer;">
+        View Proofs
+    </button>
+
+    <div id="mainCards">
+        <div class="card" onclick="showDetails('membership')">FreeFire Membership Price</div>
+        <div class="card" onclick="showDetails('diamond')">FreeFire Diamond Price</div>
+        <div class="card" onclick="showDetails('idsell')">FreeFire ID Sell</div>
+        <div class="card" onclick="showDetails('evo')">FreeFire EVO Access</div>
+        <div class="card" onclick="showDetails('lv')">FreeFire Level Up Pass</div>
+        <div class="card" onclick="showDetails('logo')">3D Logo Design</div>
+
+    </div>
+
+    <!-- MEMBERSHIP -->
+    <div id="membership" class="details">
+        <h3>FreeFire Membership Price</h3>
+
+        <div class="details-content">
+
+            <div class="item">
+                <img src="weekly_lite.webp">
+                <p>Weekly Lite – Rs.130</p>
+                <a class="btn" href="https://wa.me/94789418853?text=I%20want%20Weeklylite">Order</a>
+            </div>
+
+            <div class="item">
+                <img src="weekly.webp">
+                <p>Weekly – Rs.500</p>
+                <a class="btn" href="https://wa.me/94789418853?text=I%20want%20Weekly">Order</a>
+            </div>
+
+            <div class="item">
+                <img src="monthly.webp">
+                <p>Monthly – Rs.2450</p>
+                <a class="btn" href="https://wa.me/94789418853?text=I%20want%20Monthly">Order</a>
+            </div>
+
+            <div class="item">
+                <img src="VIP.png">
+                <p>VIP – Rs.2940</p>
+                <a class="btn" href="https://wa.me/94789418853?text=I%20want%20VIP">Order</a>
+            </div>
+
+            <div class="item">
+                <img src="SVIP.png">
+                <p>SVIP – Rs.4410</p>
+                <a class="btn" href="https://wa.me/94789418853?text=I%20want%20SVIP">Order</a>
+            </div>
+
+            <!-- ADD TO CART -->
+            <div class="add-to-cart" style="margin-top:20px;text-align:left;">
+                <h4>Select Items to Add to Cart:</h4>
+                <label><input type="checkbox" data-item="Weekly Lite – Rs.130"> Weekly Lite</label><br>
+                <label><input type="checkbox" data-item="Weekly – Rs.500"> Weekly </label><br>
+                <label><input type="checkbox" data-item="Monthly – Rs.2450"> Monthly</label><br>
+                <label><input type="checkbox" data-item="VIP – Rs.2940"> VIP</label><br>
+                <label><input type="checkbox" data-item="SVIP – Rs.4410"> SVIP </label><br>
+                <button class="btn" onclick="orderSelected(this)">Order Selected on WhatsApp</button>
+            </div>
+
+        </div>
+
+        <div class="nav-btns">
+            <button onclick="backToMain()">Back</button>
+            <button onclick="showDetails('diamond')">Next</button>
+        </div>
+    </div>
+
+    <!-- DIAMOND -->
+    <div id="diamond" class="details">
+        <h3>FreeFire Diamond Price</h3>
+
+        <div class="details-content">
+            <div class="item">
+                <img src="Screenshot (45).webp">
+                <p>💎25 Diamonds – Rs.90</p>
+                <a class="btn" href="https://wa.me/94789418853?text=I want 25 Diamonds
+price-RS 90">Order</a>
+            </div>
+            <div class="item">
+                <img src="Screenshot (45).webp">
+                <p>💎50 Diamonds – Rs.170</p>
+                <a class="btn" href="https://wa.me/94789418853?text=I want 50 Diamonds
+price-RS 170">Order</a>
+            </div>
+            <div class="item">
+                <img src="Screenshot (45).webp">
+                <p>💎100 Diamonds – Rs.300</p>
+                <a class="btn" href="https://wa.me/94789418853?text=I want 100 Diamonds
+price-RS 300">Order</a>
+            </div>
+            <div class="item">
+                <img src="Screenshot (45).webp">
+                <p>💎200 Diamonds – Rs.600</p>
+                <a class="btn" href="https://wa.me/94789418853?text=I want 200 Diamonds
+price-RS 600">Order</a>
+            </div>
+            <div class="item">
+                <img src="Screenshot (45).webp">
+                <p>💎310 Diamonds – Rs.950</p>
+                <a class="btn" href="https://wa.me/94789418853?text=I want 310 Diamonds
+price-RS 950">Order</a>
+            </div>
+            <div class="item">
+                <img src="Screenshot (45).webp">
+                <p>💎520 Diamonds – Rs.1400</p>
+                <a class="btn" href="https://wa.me/94789418853?text=I want 520 Diamonds
+price-RS 1400">Order</a>
+            </div>
+            <div class="item">
+                <img src="Screenshot (45).webp">
+                <p>💎1060 Diamonds – Rs.2800</p>
+                <a class="btn" href="https://wa.me/94789418853?text=I want 1060 Diamonds
+price-RS 2800">Order</a>
+            </div>
+            <div class="item">
+                <img src="Screenshot (45).webp">
+                <p>💎1580 Diamonds – Rs.4150</p>
+                <a class="btn" href="https://wa.me/94789418853?text=I want 1580 Diamonds
+price-RS 4150">Order</a>
+            </div>
+            <div class="item">
+                <img src="Screenshot (45).webp">
+                <p>💎2180 Diamonds – Rs.6000</p>
+                <a class="btn" href="https://wa.me/94789418853?text=I want 2180 Diamonds
+price-RS 6000">Order</a>
+            </div>
+            <div class="item">
+                <img src="Screenshot (45).webp">
+                <p>💎3240 Diamonds – Rs.8900</p>
+                <a class="btn" href="https://wa.me/94789418853?text=I want 3240 Diamonds
+price-RS 8900">Order</a>
+            </div>
+            <div class="item">
+                <img src="Screenshot (45).webp">
+                <p>💎5000 Diamonds – Rs.13400</p>
+                <a class="btn" href="https://wa.me/94789418853?text=I want 5000 Diamonds
+price-RS 13400">Order</a>
+            </div>
+            <div class="item">
+                <img src="Screenshot (45).webp">
+                <p>💎5600 Diamonds – Rs.15000</p>
+                <a class="btn" href="https://wa.me/94789418853?text=I want 5600 Diamonds
+price-RS 15000">Order</a>
+            </div>
+            <div class="item">
+                <img src="Screenshot (45).webp">
+                <p>💎10060 Diamonds – Rs.24300</p>
+                <a class="btn" href="https://wa.me/94789418853?text=I want 10060 Diamonds
+price-RS 24300">Order</a>
+            </div>
+            <div class="item">
+                <img src="Screenshot (45).webp">
+                <p>💎11500 Diamonds – Rs.27800</p>
+                <a class="btn" href="https://wa.me/94789418853?text=I want 27800 Diamonds
+price-RS 11500">Order</a>
+            </div>
+
+        </div>
+
+        <div class="nav-btns">
+            <button onclick="backToMain()">Back</button>
+            <button onclick="showDetails('idsell')">Next</button>
+        </div>
+    </div>
+
+    <!-- ID SELL -->
+    <div id="idsell" class="details">
+        <h3>FreeFire ID For Sale</h3>
+
+        <div class="details-content">
+            <div class="item">
+                <img src="Screenshot (44).jpeg">
+                <p>15500 LKR SUPERB COLLECTION ACC</p>
+                <a class="btn" href="https://wa.me/94789418853?text=I%20want%20ID">Order</a>
+            </div>
+        </div>
+
+        <div class="nav-btns">
+            <button onclick="backToMain()">Back</button>
+            <button onclick="showDetails('logo')">Next</button>
+        </div>
+    </div>
+
+    <!-- LOGO -->
+    <div id="logo" class="details">
+        <h3>3D Logo Design</h3>
+
+        <div class="details-content">
+            <div class="item">
+                <img src="logo3d.jpg">
+                <p>Custom 3D Logo – Rs.500</p>
+                <a class="btn" href="https://wa.me/94789418853?text=I%20want%203D%20Logo">Order</a>
+            </div>
+        </div>
+
+        <div class="nav-btns">
+            <button onclick="backToMain()">Back</button>
+            <button onclick="showDetails('evo')">Next</button>
+        </div>
+    </div>
+
+    <!-- EVO -->
+    <div id="evo" class="details">
+        <h3>FreeFire EVO Access & E Batch</h3>
+
+        <div class="details-content">
+            <div class="item">
+                <img src="EVO.png">
+                <p>3 Days Access – Rs.200</p>
+                <a class="btn" href="https://wa.me/94789418853?text=I want 3Days EVO Access">Order</a>
+            </div>
+
+            <div class="item">
+                <img src="EVO.png">
+                <p>7 Days Access – Rs.320</p>
+                <a class="btn" href="https://wa.me/94789418853?text=I want 7Days EVO Access">Order</a>
+            </div>
+
+            <div class="item">
+                <img src="EVO.png">
+                <p>30 Days Access – Rs.850</p>
+                <a class="btn" href="https://wa.me/94789418853?text=I want 30Days EVO Access">Order</a>
+            </div>
+
+        </div>
+
+        <div class="nav-btns">
+            <button onclick="backToMain()">Back</button>
+            <button onclick="logout()">Home</button>
+        </div>
+    </div>
+
+    <!-- LV SERVICES -->
+    <div id="lv" class="details">
+        <h3>FreeFire Level Up Pass</h3>
+
+        <div class="details-content">
+            <div class="item">
+                <img src="lvl6.webp">
+                <p>Lv6 – Rs. 120</p>
+                <a class="btn" href="https://wa.me/94789418853?text=I want level up pass Lv6">Order</a>
+            </div>
+
+            <div class="item">
+                <img src="lvl10.webp">
+                <p>Lv10 – Rs. 250</p>
+                <a class="btn" href="https://wa.me/94789418853?text=I want level up pass Lv10">Order</a>
+            </div>
+
+
+            <div class="item">
+                <img src="lvl15.webp">
+                <p>Lv15 – Rs. 250</p>
+                <a class="btn" href="https://wa.me/94789418853?text=I want level up pass Lv25">Order</a>
+            </div>
+
+
+            <div class="item">
+                <img src="lvl20.webp">
+                <p>Lv20 – Rs. 250</p>
+                <a class="btn" href="https://wa.me/94789418853?text=I want level up pass Lv20">Order</a>
+            </div>
+
+
+            <div class="item">
+                <img src="lvl20.webp">
+                <p>Lv25 – Rs. 250</p>
+                <a class="btn" href="https://wa.me/94789418853?text=I want level up pass Lv25">Order</a>
+            </div>
+
+
+            <div class="item">
+                <img src="lvl30.webp">
+                <p>Lv30 – Rs. 350</p>
+                <a class="btn" href="https://wa.me/94789418853?text=I want level up pass Lv30">Order</a>
+            </div>
+
+        </div>
+
+
+        <div class="nav-btns">
+            <button onclick="backToMain()">Back</button>
+            <button onclick="logout()">Home</button>
+        </div>
+    </div>
+
+
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+
+    <script>
+        function showDetails(id) {
+            document.querySelectorAll('.details').forEach(d => d.style.display = 'none');
+            document.getElementById(id).style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        function backToMain() {
+            document.querySelectorAll('.details').forEach(d => d.style.display = 'none');
+        }
+        function logout() { location.href = 'index.html'; }
+
+        const btn = document.getElementById("scrollTopBtn");
+        window.onscroll = () => btn.style.display = (document.documentElement.scrollTop > 200) ? "block" : "none";
+        function scrollToTop() { window.scrollTo({ top: 0, behavior: "smooth" }); }
+
+        // Add to Cart WhatsApp order
+        function orderSelected(sectionBtn) {
+            const section = sectionBtn.closest('.details');
+            const checkboxes = section.querySelectorAll('.add-to-cart input[type=checkbox]');
+            let selected = [];
+            checkboxes.forEach(cb => { if (cb.checked) selected.push(cb.getAttribute('data-item')); });
+            if (selected.length === 0) { alert("Please select at least one item!"); return; }
+            const msg = encodeURIComponent("I want to order:\n" + selected.join("\n"));
+            window.open("https://wa.me/94789418853?text=" + msg, "_blank");
+        }
+    </script>
+
+</body>
+</html>
