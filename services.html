@@ -18,7 +18,7 @@
 
         html, body {
             overflow-x: hidden;
-            background: url('Screenshot (48).jpeg') no-repeat center center fixed;
+            background: url('Screenshot (48).jpeg') no-repeat center center/cover;
             background-size: cover;
             color: white;
             text-align: center;
@@ -313,29 +313,14 @@
 
     <header>SPEED Top Up Center</header>
 
-    <button onclick="window.location.href='peyment.html'"
-            style="
-    position:fixed;
-    top:20px;
-    right:20px;
-    padding:8px 16px;
-    border:none;
-    border-radius:8px;
-    background:#2563eb;
-    color:white;
-    cursor:pointer;
-    font-size:14px;
-    z-index:9999;
-  ">
-        Payment Details
-    </button>
+
 
 
 
 
 
     <button onclick="window.open('https://wa.me/p/23904386635915267/94789418853','_blank')"
-            style="position:fixed;top:20px;color:white;left:20px;padding:10px 20px;border:none;border-radius:8px;background:#6c0202;cursor:pointer;">
+            style="position: fixed; top: 5px; color: white; left: 5px; padding: 5px 10px; border: none; border-radius: 8px; background: #6c0202; cursor: pointer; font-size: 5px;">
         View Proofs
     </button>
 
@@ -655,6 +640,21 @@ price-RS 11500">Order</a>
             window.open("https://wa.me/94789418853?text=" + msg, "_blank");
         }
     </script>
-
+    <button onclick="window.location.href='peyment.html'"
+            style="
+  position:fixed;
+  top:5px;
+  right:5px;
+  padding:8px 16px;
+  border:none;
+  border-radius:8px;
+  background:#2563eb;
+  color:white;
+  cursor:pointer;
+  font-size:5px;
+  z-index:9999;
+">
+        Payment Details
+    </button>
 </body>
 </html>
