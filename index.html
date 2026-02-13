@@ -1,132 +1,118 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPEED Top Up Center - Login</title>
+    <title>SPEED TopUp Center</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
     <style>
-        body, html {
+
+        * {
             margin: 0;
             padding: 0;
-            font-family: Arial;
-            height: 100%;
-            color: white;
-            text-align: center;
-            background: url('Screenshot (47).jpeg') no-repeat center center fixed;
-            background-size: cover;
+            box-sizing: border-box;
+            font-family: 'Poppins',sans-serif;
         }
 
-        #loginForm {
+        body {
+            height: 100vh;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: rgba(23, 23, 23, 0.6);
+            color: white;
+            background: url('Screenshot (47).jpeg') no-repeat center center/cover;
+            position: relative;
+        }
+
+            /* Dark Overlay */
+            body::before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.65);
+                backdrop-filter: blur(3px);
+                z-index: 0;
+            }
+
+        /* Glass Card */
+        .card {
+            position: relative;
+            z-index: 1;
+            width: 350px;
             padding: 40px;
-            border-radius: 15px;
-            width: 320px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);
+            border-radius: 20px;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 0 40px rgba(0,255,255,0.3);
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
         }
 
-        input {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 6px;
-            border: none;
-        }
+            .card h1 {
+                font-size: 28px;
+                margin-bottom: 10px;
+                color: #38bdf8;
+            }
 
+            .card p {
+                margin-bottom: 30px;
+                font-size: 14px;
+                opacity: .9;
+            }
+
+        /* Neon Button */
         .btn {
             width: 100%;
             padding: 12px;
-            margin: 10px 0;
             border: none;
-            border-radius: 8px;
-            font-weight: bold;
-            background: #22c55e;
-            color: rgb(20, 19, 19);
+            border-radius: 10px;
+            background: #38bdf8;
+            color: #0f172a;
+            font-weight: 600;
             cursor: pointer;
+            transition: .3s;
         }
 
             .btn:hover {
-                background: #16a34a;
-                color: white;
+                background: #0ea5e9;
+                box-shadow: 0 0 20px #38bdf8;
+                transform: translateY(-3px);
             }
 
-        header {
-            font-size: 50px;
-            font-weight: bold;
-            color: rgb(228, 222, 222);
-            margin-bottom: 20px;
-            background: #f0f3f1;
-            background: rgba(23, 23, 23, 0.6);
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        /* Mobile-Friendly Media Query */
-        @media screen and (max-width: 600px) {
-            #loginForm {
+        /* Mobile */
+        @media(max-width:500px) {
+            .card {
                 width: 90%;
-                padding: 20px;
+                padding: 30px;
             }
-
-            header {
-                font-size: 30px;
-            }
-
-            .btn {
-                padding: 15px;
-                font-size: 18px;
-            }
-            @media (max-width: 768px) {
-                header {
-                    font-size: 28px;
-                    padding: 12px;
-                }
-
-                #loginForm {
-                    width: 90%;
-                    padding: 25px;
-                }
-
-                p {
-                    font-size: 16px;
-                }
-
-                .btn {
-                    font-size: 16px;
-                }
-            }
-
-            @media (max-width: 400px) {
-                header {
-                    font-size: 22px;
-                }
-            }
-
         }
     </style>
 </head>
+
 <body>
-    <header>SPEED TopUp Center</header>
 
-    <section id="loginForm">
-        <p>WELCOME TO SPEED</p>
+    <div class="card">
+        <h1>SPEED TOPU</h1>
+        <p>Fast • Secure • Trusted Gaming Store</p>
+        <button class="btn" onclick="location.href='services.html'">
+            ENTER STORE
+        </button>
+    </div>
 
-        <!-- Username & Password REMOVED -->
-
-        <button class="btn" onclick="goNext()">LET'S GO</button>
-    </section>
-
-    <script>
-        function goNext() {
-            location.href = "services.html";
-        }
-    </script>
 </body>
 </html>
