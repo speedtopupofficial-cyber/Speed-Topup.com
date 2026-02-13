@@ -57,18 +57,24 @@
         }
 
         .card {
+            
             background: rgba(255,255,255,0.05);
             backdrop-filter: blur(15px);
             border-radius: 22px;
-            width: 250px;
-            padding: 30px 20px;
+            width: 300px; /* slightly wider */
+            padding: 25px 20px;
             cursor: pointer;
             transition: 0.4s ease;
             border: 1px solid rgba(255,255,255,0.1);
             position: relative;
             overflow: hidden;
             color: white;
+            line-height: 1.5; /* line spacing */
+            font-size: 18px; /* slightly smaller to fit 2 items */
+            text-align: center;
         }
+
+       
 
             .card::after {
                 content: "";
