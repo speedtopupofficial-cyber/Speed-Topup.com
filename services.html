@@ -7,170 +7,303 @@
     <title>Speed Top Up Center - Services</title>
 
     <style>
-        body, html {
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+
+        * {
             margin: 0;
             padding: 0;
-            font-family: Arial;
-            color: rgb(255, 255, 255);
-            text-align: center;
+            box-sizing: border-box;
+            font-family: 'Poppins',sans-serif;
+        }
+
+        html, body {
+            overflow-x: hidden;
             background: url('Screenshot (48).jpeg') no-repeat center center fixed;
             background-size: cover;
+            color: white;
+            text-align: center;
+            animation: bgZoom 25s infinite alternate ease-in-out;
+        }
+
+        /* Smooth background zoom */
+        @keyframes bgZoom {
+            0% {
+                background-size: 100%;
+            }
+
+            100% {
+                background-size: 110%;
+            }
         }
 
         header {
-            padding: 15px;
-            font-size: 24px;
-            font-weight: bold;
-            background: rgba(0,0,0,0.7);
+            padding: 22px;
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(12px);
+            text-shadow: 0 0 15px #38bdf8;
+            border-radius: 0 0 12px 12px;
         }
 
-        /* MAIN 5 CARDS */
-        .card {
-            background: rgba(19, 11, 58, 0.7);
-            border-radius: 12px;
-            width: 220px;
-            padding: 20px;
-            margin: 15px;
-            display: inline-block;
-            cursor: pointer;
-            transition: .3s;
+        /* MAIN CARDS */
+        #mainCards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            padding: 50px 20px;
         }
+
+        .card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(15px);
+            border-radius: 22px;
+            width: 250px;
+            padding: 30px 20px;
+            cursor: pointer;
+            transition: 0.4s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+            .card::after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: -100%;
+                background: linear-gradient(120deg,transparent,rgba(255,255,255,0.3),transparent);
+                transition: 0.6s;
+            }
+
+            .card:hover::after {
+                left: 100%;
+            }
 
             .card:hover {
+                transform: translateY(-12px) scale(1.03);
+                box-shadow: 0 0 25px #38bdf8;
                 background: #38bdf8;
                 color: black;
-                transform: translateY(-5px);
             }
 
         /* DETAILS SECTION */
         .details {
             display: none;
-            margin: 30px auto;
-            padding: 25px;
-            width: 90%;
-            max-width: 1100px;
-            /* WHITE TRANSPARENT */
-            background: rgba(14, 8, 50, 0.18);
-            backdrop-filter: blur(8px);
-            border-radius: 16px;
+            margin: 40px auto;
+            padding: 35px;
+            width: 95%;
+            max-width: 1200px;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(18px);
+            border-radius: 22px;
+            animation: fadeIn .5s ease;
         }
 
-        /* HORIZONTAL LAYOUT */
+            .details h3 {
+                margin-bottom: 25px;
+                font-size: 24px;
+                color: #38bdf8;
+            }
+
         .details-content {
             display: flex;
-            gap: 20px;
+            gap: 25px;
             overflow-x: auto;
-            padding: 10px;
+            padding-bottom: 10px;
         }
 
-        /* EACH ITEM CARD */
         .item {
-            min-width: 260px;
+            min-width: 270px;
             background: rgba(0,0,0,0.65);
-            border-radius: 12px;
-            padding: 15px;
+            border-radius: 18px;
+            padding: 18px;
+            transition: .3s;
         }
+
+            .item:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 0 20px #38bdf8;
+            }
 
             .item img {
                 width: 100%;
-                border-radius: 8px;
+                border-radius: 12px;
             }
 
+        /* BUTTONS */
         .btn {
-            padding: 10px 15px;
-            background: #22c55e;
+            display: inline-block;
+            margin-top: 12px;
+            padding: 12px 18px;
+            background: linear-gradient(45deg,#38bdf8,#0ea5e9);
             color: black;
             text-decoration: none;
-            display: inline-block;
-            margin-top: 10px;
-            border-radius: 6px;
+            border-radius: 10px;
+            font-weight: 700;
+            transition: .3s;
         }
 
             .btn:hover {
-                background: #16a34a;
-                color: rgb(15, 6, 37);
+                box-shadow: 0 0 20px #38bdf8;
+                transform: scale(1.05);
             }
 
-        .nav-btns {
-            margin-top: 20px;
-            display: flex;
-            justify-content: space-between;
+        /* NAVIGATION BUTTONS */
+        .nav-btns button {
+            padding: 12px 22px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(45deg,#2563eb,#1d4ed8);
+            color: white;
+            cursor: pointer;
+            transition: .3s;
         }
 
-        /* MOBILE */
-        @media(max-width:600px) {
-            .details-content {
-                flex-direction: row;
+            .nav-btns button:hover {
+                transform: scale(1.05);
+                box-shadow: 0 0 15px #2563eb;
             }
-        }
 
-        /* SCROLL TOP */
+        /* Scroll button */
         #scrollTopBtn {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            padding: 12px 15px;
+            bottom: 25px;
+            right: 25px;
+            padding: 14px 16px;
             border: none;
             border-radius: 50%;
             background: #38bdf8;
+            font-weight: bold;
             display: none;
             cursor: pointer;
+            box-shadow: 0 0 15px #38bdf8;
+            transition: .3s;
         }
 
-        /* EACH ITEM CARD */
-        .item {
-            min-width: 260px;
-            background: rgba(0,0,0,0.65);
-            border-radius: 12px;
-            padding: 15px;
-        }
-        /* ---------- MOBILE RESPONSIVE ---------- */
+            #scrollTopBtn:hover {
+                transform: scale(1.1);
+            }
 
-        @media (max-width: 768px) {
+        /* Fade animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* MOBILE RESPONSIVE */
+        @media(max-width:768px) {
+            header {
+                font-size: 22px;
+            }
 
             #mainCards {
-                display: flex;
                 flex-direction: column;
                 align-items: center;
+                padding: 30px 10px;
             }
 
             .card {
-                width: 90%;
-                font-size: 18px;
-            }
-        }
-
-        /* FIX TOP BUTTONS OVERLAP */
-        @media (max-width: 600px) {
-            button[style*="position:fixed"] {
-                position: static !important;
-                width: 90%;
-                margin: 10px auto;
-                display: block;
+                width: 95%;
             }
 
             .details-content {
-                gap: 12px;
+                flex-direction: column;
             }
 
             .item {
-                min-width: 220px;
+                min-width: 100%;
             }
 
-            .nav-btns {
-                flex-direction: column;
-                gap: 10px;
+            .btn {
+                width: 100%;
             }
-
-                .nav-btns button {
-                    width: 100%;
-                    padding: 12px;
-                }
         }
+  
+        
     </style>
 </head>
 
 <body>
+    <script>
+        const sections = ['membership', 'diamond', 'idsell', 'logo', 'evo', 'lv'];
+
+        function showDetails(id) {
+            // Hide main cards
+            document.getElementById('mainCards').style.display = 'none';
+
+            // Hide all details
+            document.querySelectorAll('.details').forEach(d => d.style.display = 'none');
+
+            // Show selected section
+            const section = document.getElementById(id);
+            section.style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function backToMain() {
+            // Hide all details
+            document.querySelectorAll('.details').forEach(d => d.style.display = 'none');
+
+            // Show main cards
+            document.getElementById('mainCards').style.display = 'flex';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Go to next section in flow
+        function nextSection(currentId) {
+            const idx = sections.indexOf(currentId);
+            if (idx >= 0 && idx < sections.length - 1) {
+                showDetails(sections[idx + 1]);
+            } else {
+                // If last, back to main
+                backToMain();
+            }
+        }
+
+        // Go to previous section in flow
+        function prevSection(currentId) {
+            const idx = sections.indexOf(currentId);
+            if (idx > 0) {
+                showDetails(sections[idx - 1]);
+            } else {
+                backToMain();
+            }
+        }
+
+        // Scroll button
+        const btn = document.getElementById("scrollTopBtn");
+        window.onscroll = () => btn.style.display = (document.documentElement.scrollTop > 200) ? "block" : "none";
+        function scrollToTop() { window.scrollTo({ top: 0, behavior: "smooth" }); }
+
+        // WhatsApp add-to-cart
+        function orderSelected(sectionBtn) {
+            const section = sectionBtn.closest('.details');
+            const checkboxes = section.querySelectorAll('.add-to-cart input[type=checkbox]');
+            let selected = [];
+            checkboxes.forEach(cb => { if (cb.checked) selected.push(cb.getAttribute('data-item')); });
+            if (selected.length === 0) { alert("Please select at least one item!"); return; }
+            const msg = encodeURIComponent("I want to order:\n" + selected.join("\n"));
+            window.open("https://wa.me/94789418853?text=" + msg, "_blank");
+        }
+    </script>
+
+
+
+
+
 
     <header>SPEED Top Up Center</header>
 
@@ -191,8 +324,8 @@
         Payment Details
     </button>
 
-    
-    
+
+
 
 
     <button onclick="window.open('https://wa.me/p/23904386635915267/94789418853','_blank')"
@@ -207,6 +340,9 @@
         <div class="card" onclick="showDetails('evo')">FreeFire EVO Access</div>
         <div class="card" onclick="showDetails('lv')">FreeFire Level Up Pass</div>
         <div class="card" onclick="showDetails('logo')">3D Logo Design</div>
+        <div class="nav-btns">
+        </div>
+
 
     </div>
 
